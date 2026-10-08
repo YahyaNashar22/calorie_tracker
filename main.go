@@ -4,6 +4,7 @@ import (
 	"log"
 
 	"github.com/YahyaNashar22/calorie_tracker/internal/config"
+	"github.com/YahyaNashar22/calorie_tracker/internal/database"
 )
 
 func main() {
@@ -11,6 +12,12 @@ func main() {
 	if err := config.Load(); err != nil {
 		log.Fatal(err)
 	}
+
+	db, err := database.Connect(config.AppConfig.DBPath)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer db.Close()
 
 	server := CreateServer()
 

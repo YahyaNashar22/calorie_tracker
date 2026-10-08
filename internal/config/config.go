@@ -24,7 +24,7 @@ func Load() error {
 	AppConfig = Config{
 		Port:   getEnv("APP_PORT", "4000"),
 		AppEnv: getEnv("APP_ENV", "development"),
-		DBPath: getEnv("DB_PATH", "./internal/database/calories.db"),
+		DBPath: getEnv("DB_PATH", "./data/calories.db"),
 	}
 
 	return nil
