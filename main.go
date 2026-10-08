@@ -2,7 +2,6 @@ package main
 
 import (
 	"log"
-	"net/http"
 
 	"github.com/YahyaNashar22/calorie_tracker/internal/config"
 )
@@ -13,15 +12,11 @@ func main() {
 		log.Fatal(err)
 	}
 
-	mux := http.NewServeMux()
-
-	mux.HandleFunc("GET /health", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Ok"))
-	})
+	server := CreateServer()
 
 	log.Printf("Server running on port %s", config.AppConfig.Port)
 
-	if err := http.ListenAndServe(":"+config.AppConfig.Port, mux); err != nil {
+	if err := server.ListenAndServe(); err != nil {
 		log.Fatal(err)
 	}
 }
