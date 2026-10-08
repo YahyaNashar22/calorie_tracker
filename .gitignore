@@ -1,0 +1,65 @@
+# =========================
+# Go build artifacts
+# =========================
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Build directories
+/bin/
+/build/
+/dist/
+
+# Coverage and profiling
+coverage/
+coverage.txt
+coverage.html
+coverage.out
+*.coverprofile
+*.prof
+cpu.prof
+mem.prof
+
+# =========================
+# Environment variables
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# IDE / Editor
+# =========================
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp
+*.swo
+*~
+
+# =========================
+# OS generated files
+# =========================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# =========================
+# Temporary files
+# =========================
+tmp/
+temp/
+*.tmp
+*.log
+
+# =========================
+# Local database files
+# =========================
+*.db
+*.sqlite
+*.sqlite3
