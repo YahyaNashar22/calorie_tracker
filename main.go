@@ -19,6 +19,11 @@ func main() {
 	}
 	defer db.Close()
 
+	// Run migrations before starting the server
+	if err := database.Migrate(db); err != nil {
+		log.Fatal(err)
+	}
+
 	server := CreateServer()
 
 	log.Printf("Server running on port %s", config.AppConfig.Port)
